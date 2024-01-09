@@ -1,0 +1,198 @@
+<html>
+
+<head>
+    <script>
+        var rollCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var firstroll = 0;
+        var secondroll = 0;
+        var roll = 0;
+        var numberSearched;
+        var largestArrayValue = 0;
+        var most;
+        function rollDie() {
+
+            firstroll = Math.floor((Math.random() * 6) + 1);
+            secondroll = Math.floor((Math.random() * 6) + 1);
+            roll = firstroll + secondroll;
+            document.getElementById("display").innerHTML = "The first die rolled " + firstroll;
+            document.getElementById("seconddisplay").innerHTML = "The second die rolled " + secondroll;
+            document.getElementById("message").innerHTML = "You rolled " + roll;
+            if (roll == 2) {
+                rollCount[0]++;
+            };
+            if (roll == 3) {
+                rollCount[1]++;
+            }
+            if (roll == 4) {
+                rollCount[2]++;
+            }
+            if (roll == 5) {
+                rollCount[3]++;
+                document.getElementById("test").innerHTML = rollCount[4];
+            }
+            if (roll == 6) {
+                rollCount[4]++;
+            }
+            if (roll == 7) {
+                rollCount[5]++;
+            }
+            if (roll == 8) {
+                rollCount[6]++;
+            }
+            if (roll == 9) {
+                rollCount[7]++;
+            }
+            if (roll == 10) {
+                rollCount[8]++;
+            }
+            if (roll == 11) {
+                rollCount[9]++;
+            }
+            if (roll == 12) {
+                rollCount[10]++;
+            }
+            if (firstroll == 1) {
+                document.getElementById("display").innerHTML = "The first die rolled " + firstroll;
+
+            }
+            pictures()
+        }
+
+        function statistics() {
+
+
+            numberSearched = document.getElementById("numberInput").value;
+
+            document.getElementById("testTwo").innerHTML = "You rolled " + numberSearched + " " + rollCount[numberSearched - 2] + " time";
+            if (rollCount[numberSearched - 2] > 1) {
+                document.getElementById("testTwo").innerHTML = "You rolled " + numberSearched + " " + rollCount[numberSearched - 2] + " times";
+
+            }
+            for (let i = 0; i < rollCount.length; i++) {
+                if (rollCount[i] > largestArrayValue) {
+                    largestArrayValue = rollCount[i];
+                }
+            }
+
+
+            document.getElementById("mostRolledNumber").innerHTML = "The " + largestArrayValue;
+            for (let i = 0; i < rollCount.length; i++) {
+
+                if (rollCount[i] == largestArrayValue) {
+                    most = i + 2;
+                    document.getElementById("mostRolledNumber").innerHTML = "The Most Rolled Number is " + most;
+
+                }
+            }
+
+        }
+
+        function pictures() {
+            if (firstroll == 1) {
+               
+                document.getElementById("defaultpic").src = "one.jpg"
+            }
+            if (firstroll == 2) {
+               
+                document.getElementById("defaultpic").src = "two.jpg"
+            }
+            if (firstroll == 3) {
+               
+                document.getElementById("defaultpic").src = "three.jpg"
+            }
+            if (firstroll == 4) {
+               
+                document.getElementById("defaultpic").src = "four.jpg"}
+                if (firstroll == 5) {
+               
+                document.getElementById("defaultpic").src = "five.jpg"}
+                if (firstroll == 6) {
+               
+                document.getElementById("defaultpic").src = "six.jpg"
+            }
+            
+            if (secondroll == 1) {
+               
+               document.getElementById("defaultpic2").src = "one.jpg"
+           }
+           if (secondroll == 2) {
+              
+               document.getElementById("defaultpic2").src = "two.jpg"
+           }
+           if (secondroll == 3) {
+              
+               document.getElementById("defaultpic2").src = "three.jpg"
+           }
+           if (secondroll == 4) {
+              
+               document.getElementById("defaultpic2").src = "four.jpg"}
+               if (secondroll == 5) {
+              
+               document.getElementById("defaultpic2").src = "five.jpg"}
+               if (secondroll == 6) {
+              
+               document.getElementById("defaultpic2").src = "six.jpg"
+           }
+            
+
+            }
+        
+
+    </script>
+    <style>
+        html {
+            background-color: rgb(82, 17, 136)
+        }
+
+        .body {
+            text-align: center;
+        }
+
+        .flex-container {
+
+            display: grid;
+            justify-content: space-evenly;
+            font-size: 30px;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div>
+            <button onclick="rollDie()"> Click to roll dice</button>
+        </div>
+        <div id="display">
+            First Roll
+        </div>
+        <img src="die.jpg" id="defaultpic" alt="">
+        
+        <div id="seconddisplay">Second Roll </div>
+        <img src="die2.jpg" id="defaultpic2">
+        <div id="message"> Your rolled...</div>
+
+
+        <button onclick="statistics()">
+            How many times?
+        </button>
+        <input id="numberInput">
+
+        <div id="testTwo">Roll Statistics</div>
+        <div id="mostRolledNumber"> </div>
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+
+
+
+
+</html>
